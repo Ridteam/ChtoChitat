@@ -2,3 +2,7 @@
 .project
 bin/*
 gen/*
+/actionbarsherlock/bin/*
+/actionbarsherlock/gen/*
+/pulltorefresh/bin/*
+/pulltorefresh/gen/*
