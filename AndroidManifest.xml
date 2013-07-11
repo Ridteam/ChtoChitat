@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
     package="com.ridteam.livejournal.chtochitat.activity"
-=======
-    package="com.ridteam.livejournal.chtochitat"
->>>>>>> 4b89a11ff5db4a262d953e91802139d8977c7e68
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -12,25 +8,17 @@
         android:minSdkVersion="10"
         android:targetSdkVersion="17" />
 
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="com.ridteam.livejournal.chtochitat.app.ChtoChitatApp"
-=======
-    <application
->>>>>>> 4b89a11ff5db4a262d953e91802139d8977c7e68
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-<<<<<<< HEAD
             android:name=".HomeActivity"
-=======
-            android:name="com.ridteam.livejournal.chtochitat.HomeActivity"
->>>>>>> 4b89a11ff5db4a262d953e91802139d8977c7e68
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,8 +28,4 @@
         </activity>
     </application>
 
-<<<<<<< HEAD
 </manifest>
-=======
-</manifest>
->>>>>>> 4b89a11ff5db4a262d953e91802139d8977c7e68
