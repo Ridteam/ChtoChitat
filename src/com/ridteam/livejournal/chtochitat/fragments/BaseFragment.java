@@ -12,7 +12,7 @@ public abstract class BaseFragment extends Fragment
 	 * @param view
 	 *            - inflate (root) view
 	 */
-	abstract public void initControls(View view);
+	abstract void initControls(View view);
 
 	/**
 	 * Initialize data of fragments for view
