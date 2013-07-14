@@ -194,7 +194,16 @@ public class Utils
 	 */
 	public static String decodeBase64(String text)
 	{
-		byte[] data = Base64.decode(text, Base64.DEFAULT);
+		byte[] data = null;
+		try
+		{
+			data = Base64.decode(text, Base64.DEFAULT);
+		}
+		catch (IllegalArgumentException e)
+		{
+			logError(TAG + " decodeBase64", e);
+			return text;
+		}
 		try
 		{
 			return new String(data, "UTF-8");
@@ -204,6 +213,21 @@ public class Utils
 			e.printStackTrace();
 		}
 		return "";
+	}
+
+	/**
+	 * Check String for Base64
+	 * 
+	 * @param text
+	 * @return if text is Base64 return true
+	 */
+	public static boolean isBase64(String text)
+	{
+		if (text.replace(" ", "").length() % 4 != 0)
+		{
+			return false;
+		}
+		return true;
 	}
 
 	// TODO: test

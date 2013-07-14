@@ -57,6 +57,10 @@ public class EventSaxParser extends DefaultHandler
 
 	private void setValueEntity(String value)
 	{
+		if (Utils.isBase64(value))
+		{
+			value = Utils.decodeBase64(value);
+		}
 		if (isValue)
 		{
 			if (isValue && mName.equals(XmlRpcResponseField.ITEMID))
@@ -69,7 +73,7 @@ public class EventSaxParser extends DefaultHandler
 			}
 			else if (isValue && mName.equals(XmlRpcResponseField.EVENT))
 			{
-				mEntity.setEvent(Utils.decodeBase64(value));
+				mEntity.setEvent(value);
 			}
 			else if (isValue && mName.equals(XmlRpcResponseField.EVENTTIME))
 			{
