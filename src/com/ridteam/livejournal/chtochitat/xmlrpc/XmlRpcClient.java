@@ -1,6 +1,8 @@
 package com.ridteam.livejournal.chtochitat.xmlrpc;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -47,6 +49,17 @@ public class XmlRpcClient
 			httpPost.setEntity(sEntity);
 			HttpResponse response = httpClient.execute(httpPost);
 			sResponse = EntityUtils.toString(response.getEntity());
+			PrintStream out = null;
+			try
+			{
+				out = new PrintStream(new FileOutputStream("data/data/com.ridteam.livejournal.chtochitat/response.txt"));
+				out.print(sResponse);
+			}
+			finally
+			{
+				if (out != null)
+					out.close();
+			}
 			Utils.logDebug(TAG + " getResponse", sResponse);
 		}
 		catch (ClientProtocolException e)

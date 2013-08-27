@@ -27,7 +27,8 @@ public class WebService
 	}
 
 	/**
-	 * Load list of events.<br><b>Warning:</b> need run in asynchronous task
+	 * Load list of events.<br>
+	 * <b>Warning:</b> need run in asynchronous task
 	 * 
 	 * @param login
 	 * @param password
@@ -45,6 +46,29 @@ public class WebService
 			listEventEntity = xmlDeserializer.getEvents(result);
 		}
 		return listEventEntity;
+	}
+
+	/**
+	 * Load event.<br>
+	 * <b>Warning:</b> need run in asynchronous task
+	 * 
+	 * @param login
+	 * @param password
+	 * @param itemId
+	 * @return
+	 */
+	public EventEntity getMessageFromWall(String login, String password, int itemId)
+	{
+		EventEntity event = new EventEntity();
+		XmlRpcRequest xmlRequest = new XmlRpcRequest();
+		XmlRpcClient xmlClient = new XmlRpcClient();
+		String result = xmlClient.getResponse(xmlRequest.getEventRequestXML(login, password, null, itemId));
+		if (result != null)
+		{
+			XmlRpcDeserializer xmlDeserializer = new XmlRpcDeserializer();
+			event = xmlDeserializer.getEvent(result);
+		}
+		return event;
 	}
 
 }

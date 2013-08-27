@@ -20,6 +20,7 @@ public class EventSaxParser extends DefaultHandler
 	private ArrayList<EventEntity> mListEntity = new ArrayList<EventEntity>();
 	private EventEntity mEntity = null;
 	private boolean isValue = false;
+	private boolean isBase64 = false;
 
 	@Override
 	public void startDocument() throws SAXException
@@ -40,6 +41,10 @@ public class EventSaxParser extends DefaultHandler
 		{
 			isValue = true;
 		}
+		else if (mElementName.equals(XmlRpcTag.TAG_BASE64))
+		{
+			isBase64 = true;
+		}
 	}
 
 	@Override
@@ -57,7 +62,7 @@ public class EventSaxParser extends DefaultHandler
 
 	private void setValueEntity(String value)
 	{
-		if (Utils.isBase64(value))
+		if (isBase64)
 		{
 			value = Utils.decodeBase64(value);
 		}
@@ -124,6 +129,10 @@ public class EventSaxParser extends DefaultHandler
 		if (qName.equals(XmlRpcTag.TAG_VALUE))
 		{
 			isValue = false;
+		}
+		if (qName.equals(XmlRpcTag.TAG_BASE64))
+		{
+			isBase64 = false;
 		}
 		else if (qName.equals(XmlRpcTag.TAG_STRUCT))
 		{

@@ -25,7 +25,7 @@ public class XmlRpcDeserializer
 
 	public XmlRpcDeserializer()
 	{
-		
+
 	}
 
 	/**
@@ -76,6 +76,19 @@ public class XmlRpcDeserializer
 			}
 		}
 		return listEventEntity;
+	}
+
+	public EventEntity getEvent(final String request)
+	{
+		ArrayList<EventEntity> listEventEntity = getEvents(request);
+		if (listEventEntity != null && listEventEntity.size() > 0)
+		{
+			return listEventEntity.get(0);
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 }

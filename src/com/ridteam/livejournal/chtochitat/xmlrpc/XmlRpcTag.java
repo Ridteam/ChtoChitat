@@ -12,5 +12,6 @@ public class XmlRpcTag
 	public static final String TAG_STRUCT = "struct";
 	public static final String TAG_MEMBER = "member";
 	public static final String TAG_NAME = "name";
-	
+	public static final String TAG_BASE64 = "base64";
+
 }

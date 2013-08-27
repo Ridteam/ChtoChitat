@@ -60,7 +60,7 @@ public class XmlRpcRequest
 		entity.put(XmlRpcRequestField.USERNAME, LOGIN);
 		entity.put(XmlRpcRequestField.PASSWORD, PASSWORD);
 		entity.put(XmlRpcRequestField.VER, 1);
-		entity.put(XmlRpcRequestField.TRUNCATE, 50);
+		entity.put(XmlRpcRequestField.TRUNCATE, 100);
 		entity.put(XmlRpcRequestField.PREFERSUBJECT, Boolean.valueOf(false));
 		entity.put(XmlRpcRequestField.NOPROPS, Boolean.valueOf(false));
 		entity.put(XmlRpcRequestField.NOTAGS, Boolean.valueOf(false));
@@ -68,6 +68,44 @@ public class XmlRpcRequest
 		entity.put(XmlRpcRequestField.LINEENDINGS, String.valueOf("space"));
 		entity.put(XmlRpcRequestField.USEJOURNAL, JOURNAL);
 		entity.put(XmlRpcRequestField.TRIM_WIDGETS, 50);
+		entity.put(XmlRpcRequestField.PARSELJTS, Boolean.valueOf(true));
+
+		XmlRpcSerializer serializer = new XmlRpcSerializer();
+		String result = null;
+		try
+		{
+			result = serializer.writeParamsToXmlRpc(entity, XmlRpcRequestField.METHOD_GETEVENTS);
+		}
+		catch (IllegalArgumentException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IllegalStateException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String getEventRequestXML(String login, String password, String journal, int itemId)
+	{
+		BaseEntity entity = new BaseEntity();
+		entity.put(XmlRpcRequestField.USERNAME, LOGIN);
+		entity.put(XmlRpcRequestField.PASSWORD, PASSWORD);
+		entity.put(XmlRpcRequestField.VER, 1);
+		entity.put(XmlRpcRequestField.TRUNCATE, 10000);
+		entity.put(XmlRpcRequestField.PREFERSUBJECT, Boolean.valueOf(false));
+		entity.put(XmlRpcRequestField.NOPROPS, Boolean.valueOf(false));
+		entity.put(XmlRpcRequestField.NOTAGS, Boolean.valueOf(false));
+		entity.put(XmlRpcRequestField.SELECTTYPE, String.valueOf("one"));
+		entity.put(XmlRpcRequestField.ITEMID, itemId);
+		entity.put(XmlRpcRequestField.LINEENDINGS, String.valueOf("space"));
+		entity.put(XmlRpcRequestField.USEJOURNAL, JOURNAL);
+		entity.put(XmlRpcRequestField.TRIM_WIDGETS, 10000);
 		entity.put(XmlRpcRequestField.PARSELJTS, Boolean.valueOf(true));
 
 		XmlRpcSerializer serializer = new XmlRpcSerializer();
