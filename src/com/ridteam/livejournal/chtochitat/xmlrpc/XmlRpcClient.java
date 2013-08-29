@@ -49,6 +49,7 @@ public class XmlRpcClient
 			httpPost.setEntity(sEntity);
 			HttpResponse response = httpClient.execute(httpPost);
 			sResponse = EntityUtils.toString(response.getEntity());
+			//TODO: need to delete
 			PrintStream out = null;
 			try
 			{

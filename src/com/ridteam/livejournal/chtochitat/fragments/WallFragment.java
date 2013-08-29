@@ -25,7 +25,7 @@ import com.ridteam.livejournal.chtochitat.xmlrpc.entities.event.EventEntity;
 
 public class WallFragment extends BaseFragment implements LoaderManager.LoaderCallbacks<List<EventEntity>>, OnItemClickListener
 {
-	public static final String TAG = "EventListFragment";
+	public static final String TAG = "WallFragment";
 	private PullToRefreshListView mLvEvents = null;
 	private EventListAdapter mAdapter = null;
 	private WallLoader loader = null;
