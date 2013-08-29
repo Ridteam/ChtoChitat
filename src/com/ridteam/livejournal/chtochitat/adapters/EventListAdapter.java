@@ -59,45 +59,49 @@ public class EventListAdapter extends ArrayAdapter<EventEntity>
 			holder.pPoster.setText(entity.getPoster());
 			holder.pSubject.setText(entity.getSubject());
 			holder.pAvatar.setImageResource(R.drawable.nouserpic);
-			if (!entity.getPoster().contains("_"))
-			{
-				setImageOfProfile(holder.pAvatar, entity.getPoster());
-			}
+			setImageOfProfile(holder.pAvatar, entity.getPoster());
 		}
 		return item;
 	}
 
-	private void setImageOfProfile(final ImageView iv, final String nickName)
+	private void setImageOfProfile(final ImageView iv, String nickName)
 	{
-		new AsyncTask<String, String, String>()
+		if (nickName != null)
 		{
-
-			protected void onPreExecute()
+			if (nickName.contains("_"))
 			{
-
-			};
-
-			@Override
-			protected String doInBackground(String... params)
-			{
-				Profile profile = new WebService().getProfile(params[0]);
-				if (profile != null)
-				{
-					return profile.getImgUrl();
-				}
-				return null;
+				nickName = nickName.replace("_", "-");
 			}
-
-			protected void onPostExecute(String result)
+			new AsyncTask<String, String, String>()
 			{
-				Log.i(TAG, "image url of profile: " + result);
-				if (result != null)
-				{
-					imageLoader.displayImage(result, iv, ImageType.PROFILE_THUMB);
-				}
-			};
 
-		}.execute(nickName);
+				protected void onPreExecute()
+				{
+
+				};
+
+				@Override
+				protected String doInBackground(String... params)
+				{
+					Profile profile = new WebService().getProfile(params[0]);
+					if (profile != null)
+					{
+						return profile.getImgUrl();
+					}
+					return null;
+				}
+
+				protected void onPostExecute(String result)
+				{
+					Log.i(TAG, "image url of profile: " + result);
+					if (result != null)
+					{
+						imageLoader.displayImage(result, iv, ImageType.PROFILE_THUMB);
+					}
+				};
+
+			}.execute(nickName);
+		}
 	}
 
 }
