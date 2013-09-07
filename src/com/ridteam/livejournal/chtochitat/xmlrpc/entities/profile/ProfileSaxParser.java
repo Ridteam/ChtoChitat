@@ -55,10 +55,10 @@ public class ProfileSaxParser extends DefaultHandler
 			{
 				profile.setDescription(value);
 			}
-			else if (mElementName.equals(XmlRpcTag.TAG_LAST_BUILD_DATE))
-			{
-				profile.setLastBuildDate(value);
-			}
+//			else if (mElementName.equals(XmlRpcTag.TAG_LAST_BUILD_DATE))
+//			{
+//				profile.setLastBuildDate(value);
+//			}
 			else if (mElementName.equals(XmlRpcTag.TAG_TITLE))
 			{
 				profile.setTitleChanel(value);

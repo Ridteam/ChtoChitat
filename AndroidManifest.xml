@@ -26,6 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".db.DataBaseProvider"
+            android:authorities="com.ridteam.livejournal.chtochitat.db.DataBaseProvider" />
     </application>
 
 </manifest>

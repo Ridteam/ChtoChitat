@@ -5,7 +5,6 @@ public class XmlRpcResponseField
 
 	//event
 	public static final String ITEMID = "itemid";
-	public static final String SUBJECT = "subject";
 	public static final String EVENT = "event";
 	public static final String EVENTTIME = "eventtime";
 	public static final String CAN_COMMENT = "can_comment";

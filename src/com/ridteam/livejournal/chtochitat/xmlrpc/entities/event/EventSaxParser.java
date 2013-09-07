@@ -1,6 +1,7 @@
 package com.ridteam.livejournal.chtochitat.xmlrpc.entities.event;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -72,17 +73,17 @@ public class EventSaxParser extends DefaultHandler
 			{
 				mEntity.setItemid(Integer.valueOf(value));
 			}
-			else if (isValue && mName.equals(XmlRpcResponseField.SUBJECT))
-			{
-				mEntity.setSubject(value);
-			}
+			// else if (isValue && mName.equals(XmlRpcResponseField.SUBJECT))
+			// {
+			// mEntity.setSubject(value);
+			// }
 			else if (isValue && mName.equals(XmlRpcResponseField.EVENT))
 			{
 				mEntity.setEvent(value);
 			}
 			else if (isValue && mName.equals(XmlRpcResponseField.EVENTTIME))
 			{
-				mEntity.setEventTime(value);
+				mEntity.setEventTime(Utils.getDateFromDateString(value));
 			}
 			else if (isValue && mName.equals(XmlRpcResponseField.CAN_COMMENT))
 			{
@@ -109,7 +110,7 @@ public class EventSaxParser extends DefaultHandler
 			}
 			else if (isValue && mName.equals(XmlRpcResponseField.EVENT_TIMESTAMP))
 			{
-				mEntity.setEventTimeStamp(value);
+				mEntity.setEventTimeStamp(Utils.getDateFromString(value));
 			}
 			else if (isValue && mName.equals(XmlRpcResponseField.REPLAY_COUNT))
 			{

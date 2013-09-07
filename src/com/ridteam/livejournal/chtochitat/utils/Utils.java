@@ -10,6 +10,10 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -277,7 +281,65 @@ public class Utils
 		}
 		catch (Exception ex)
 		{
+			ex.printStackTrace();
 		}
+	}
+
+	/**
+	 * Convert string time in milliseconds to Date of Object
+	 * 
+	 * @param time
+	 *            - time in millis of string
+	 * @return Date
+	 */
+	public static Date getDateFromString(final String time)
+	{
+		long timeInMillis = Long.valueOf(time);
+		return new Date(timeInMillis);
+	}
+
+	/**
+	 * Convert string date to Date of Object. Example "2013-08-27 01:50:00"
+	 * 
+	 * @param time
+	 *            - date in string
+	 * @return Date
+	 */
+	public static Date getDateFromDateString(final String time)
+	{
+		Date date = null;
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		try
+		{
+			date = formatter.parse(time);
+		}
+		catch (ParseException e)
+		{
+			e.printStackTrace();
+		}
+		return date;
+	}
+
+	/**
+	 * Convert time in milliseconds to Date of Object
+	 * 
+	 * @param timeInMillis
+	 * @return Date
+	 */
+	public static Date getDateFromLong(final long timeInMillis)
+	{
+		return new Date(timeInMillis);
+	}
+
+	public static String getFormattedDate(final Date date)
+	{
+		String formatDate = "";
+		if (date != null)
+		{
+			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			formatDate = formatter.format(date);
+		}
+		return formatDate;
 	}
 
 }

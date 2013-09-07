@@ -129,4 +129,36 @@ public class XmlRpcRequest
 		return result;
 	}
 
+	public String getCommentsRequestXML(String login, String password)
+	{
+		BaseEntity entity = new BaseEntity();
+		entity.put(XmlRpcRequestField.USERNAME, LOGIN);
+		entity.put(XmlRpcRequestField.PASSWORD, PASSWORD);
+//		entity.put(XmlRpcRequestField.VER, 1);
+//		entity.put(XmlRpcRequestField.ITEMSHOW, 10);
+//		entity.put(XmlRpcRequestField.SKIP, 0);
+//		entity.put(XmlRpcRequestField.TRIM_WIDGETS, 50);
+//		entity.put(XmlRpcRequestField.PARSELJTS, Boolean.valueOf(true));
+
+		XmlRpcSerializer serializer = new XmlRpcSerializer();
+		String result = null;
+		try
+		{
+			result = serializer.writeParamsToXmlRpc(entity, XmlRpcRequestField.METHOD_GETRECENTCOMMENTS);
+		}
+		catch (IllegalArgumentException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IllegalStateException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

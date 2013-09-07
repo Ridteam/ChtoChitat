@@ -138,4 +138,26 @@ public class WebService
 		return profile;
 	}
 
+	/**
+	 * Load list of comments.<br>
+	 * <b>Warning:</b> need run in asynchronous task
+	 * 
+	 * @param login
+	 * @param password
+	 * @return
+	 */
+	public ArrayList<EventEntity> getListOfCommentsForEvent(String login, String password)
+	{
+		ArrayList<EventEntity> listEventEntity = new ArrayList<EventEntity>();
+		XmlRpcRequest xmlRequest = new XmlRpcRequest();
+		XmlRpcClient xmlClient = new XmlRpcClient();
+		String result = xmlClient.getResponse(xmlRequest.getCommentsRequestXML(login, password));
+		if (result != null)
+		{
+			XmlRpcDeserializer xmlDeserializer = new XmlRpcDeserializer();
+			listEventEntity = xmlDeserializer.getEvents(result);
+		}
+		return listEventEntity;
+	}
+
 }

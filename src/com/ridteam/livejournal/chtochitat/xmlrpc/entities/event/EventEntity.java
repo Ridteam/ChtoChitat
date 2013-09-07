@@ -1,18 +1,18 @@
 package com.ridteam.livejournal.chtochitat.xmlrpc.entities.event;
 
+import java.util.Date;
+
 public class EventEntity
 {
 
 	private int mItemid;
 	private String mSubject = null;
 	private String mEvent = null;
-	private String mEventTime = null;
+	private Date mEventTime = null;
 	private String mUrl = null;
 	private int mAnum;
-	private String mEventTimeStamp = null;
+	private Date mEventTimeStamp = null;
 	private int mReplyCount;
-	private String mSecurity = null;
-	private String mAllowmask = null;
 	private boolean isCanComment = true;
 	private String mPoster = null;
 
@@ -21,7 +21,7 @@ public class EventEntity
 
 	}
 
-	public EventEntity(final int itemid, final String subject, final String event, final String eventTime, final String url, final int anum, final String eventTimeStamp, final int replyCount, final String security, final String allowmask, boolean isCanComment, final String poster)
+	public EventEntity(final int itemid, final String subject, final String event, final Date eventTime, final String url, final int anum, final Date eventTimeStamp, final int replyCount, boolean isCanComment, final String poster)
 	{
 		this.setItemid(itemid);
 		this.setSubject(subject);
@@ -31,8 +31,6 @@ public class EventEntity
 		this.setAnum(anum);
 		this.setEventTimeStamp(eventTimeStamp);
 		this.setReplyCount(replyCount);
-		this.setSecurity(security);
-		this.setAllowmask(allowmask);
 		this.setCanComment(isCanComment);
 		this.setPoster(poster);
 	}
@@ -67,12 +65,12 @@ public class EventEntity
 		this.mEvent = event;
 	}
 
-	public String getEventTime()
+	public Date getEventTime()
 	{
 		return mEventTime;
 	}
 
-	public void setEventTime(String eventTime)
+	public void setEventTime(Date eventTime)
 	{
 		this.mEventTime = eventTime;
 	}
@@ -97,12 +95,12 @@ public class EventEntity
 		this.mAnum = anum;
 	}
 
-	public String getEventTimeStamp()
+	public Date getEventTimeStamp()
 	{
 		return mEventTimeStamp;
 	}
 
-	public void setEventTimeStamp(String eventTimeStamp)
+	public void setEventTimeStamp(Date eventTimeStamp)
 	{
 		this.mEventTimeStamp = eventTimeStamp;
 	}
@@ -115,26 +113,6 @@ public class EventEntity
 	public void setReplyCount(int replyCount)
 	{
 		this.mReplyCount = replyCount;
-	}
-
-	public String getSecurity()
-	{
-		return mSecurity;
-	}
-
-	public void setSecurity(String security)
-	{
-		this.mSecurity = security;
-	}
-
-	public String getAllowmask()
-	{
-		return mAllowmask;
-	}
-
-	public void setAllowmask(String allowmask)
-	{
-		this.mAllowmask = allowmask;
 	}
 
 	public boolean isCanComment()

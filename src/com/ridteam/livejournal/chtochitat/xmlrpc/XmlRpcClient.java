@@ -53,7 +53,7 @@ public class XmlRpcClient
 			PrintStream out = null;
 			try
 			{
-				out = new PrintStream(new FileOutputStream("data/data/com.ridteam.livejournal.chtochitat/response.txt"));
+				out = new PrintStream(new FileOutputStream("data/data/com.ridteam.livejournal.chtochitat/response1.txt"));
 				out.print(sResponse);
 			}
 			finally

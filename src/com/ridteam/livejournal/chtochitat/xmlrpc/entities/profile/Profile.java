@@ -1,18 +1,20 @@
 package com.ridteam.livejournal.chtochitat.xmlrpc.entities.profile;
 
+import java.util.Date;
+
 public class Profile
 {
 
 	private String titleChanel = null;
 	private String linkChanel = null;
 	private String description = null;
-	private String lastBuildDate = null;
+	private Date lastBuildDate = null;
 	private String imgUrl = null;
 
 	public Profile()
 	{}
 
-	public Profile(String titleChanel, String linkChanel, String description, String lastBuildDate, String imgUrl)
+	public Profile(String titleChanel, String linkChanel, String description, Date lastBuildDate, String imgUrl)
 	{
 		this.setTitleChanel(titleChanel);
 		this.setLinkChanel(linkChanel);
@@ -51,12 +53,12 @@ public class Profile
 		this.description = description;
 	}
 
-	public String getLastBuildDate()
+	public Date getLastBuildDate()
 	{
 		return lastBuildDate;
 	}
 
-	public void setLastBuildDate(String lastBuildDate)
+	public void setLastBuildDate(Date lastBuildDate)
 	{
 		this.lastBuildDate = lastBuildDate;
 	}

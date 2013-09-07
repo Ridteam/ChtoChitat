@@ -30,8 +30,12 @@ public class XmlRpcRequestField
 	public static final String WIDGETS_IMG_LENGTH = "widgets_img_length";
 	public static final String PARSELJTS = "parseljtags";
 
+	// field for comment
+	public static final String ITEMSHOW = "itemshow";
+
 	// methods name
 	public static final String METHOD_LOGIN = "LJ.XMLRPC.login";
 	public static final String METHOD_GETEVENTS = "LJ.XMLRPC.getevents";
+	public static final String METHOD_GETRECENTCOMMENTS = "LJ.XMLRPC.getrecentcomments";
 
 }
